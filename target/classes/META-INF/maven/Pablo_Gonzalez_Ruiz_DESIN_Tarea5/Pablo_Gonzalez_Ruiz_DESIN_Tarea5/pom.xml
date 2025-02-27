@@ -1,47 +1,57 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>Pablo_Gonzalez_Ruiz_DESIN_Tarea5</groupId>
-  <artifactId>Pablo_Gonzalez_Ruiz_DESIN_Tarea5</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-  
-  <dependencies>
-    <dependency>
-        <groupId>com.formdev</groupId>
-        <artifactId>flatlaf</artifactId>
-        <version>3.3</version>
-    </dependency>
-</dependencies>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-<build>
-    <plugins>
-        <plugin>
-            <groupId>com.github.jonathanjo</groupId>
-            <artifactId>maven-launch4j-plugin</artifactId>
-            <version>2.4.2</version>
-            <executions>
-                <execution>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>launch4j</goal>
-                    </goals>
-                </execution>
-            </executions>
-            <configuration>
-                <!-- Nombre del archivo .exe que se generará -->
-                <outfile>target/${project.artifactId}.exe</outfile>
-                <!-- Nombre del archivo jar que se convertirá en .exe -->
-                <jar>${project.build.directory}/${project.build.finalName}.jar</jar>
-                <!-- Icono para el .exe -->
-                <icon>src/main/resources/icon.ico</icon> <!-- Opcional -->
-                <!-- Configura el JRE requerido para ejecutar el .exe -->
-                <minJreVersion>1.8.0</minJreVersion>
-            </configuration>
-        </plugin>
-    </plugins>
-</build>
+	<modelVersion>4.0.0</modelVersion>
 
+	<groupId>Pablo_Gonzalez_Ruiz_DESIN_Tarea5</groupId>
+	<artifactId>Pablo_Gonzalez_Ruiz_DESIN_Tarea5</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
-  
+	<dependencies>
+		<dependency>
+			<groupId>com.formdev</groupId>
+			<artifactId>flatlaf</artifactId>
+			<version>3.3</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.akathist.maven.plugins.launch4j</groupId>
+				<artifactId>launch4j-maven-plugin</artifactId>
+				<version>2.5.3</version>
+				<executions>
+					<execution>
+						<id>l4j-clui</id>
+						<phase>package</phase>
+						<goals>
+							<goal>launch4j</goal>
+						</goals>
+						<configuration>
+							<headerType>gui</headerType>
+							<outfile>
+								${project.build.directory}/${project.build.finalName}.exe</outfile>
+							<jar>
+								${project.build.directory}/${project.build.finalName}.jar</jar>
+							<errTitle>App Error</errTitle>
+							<classPath>
+								<mainClass>com.tarea5.Interface</mainClass>
+							</classPath>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>launch4j-repo</id>
+			<url>https://repo1.maven.org/maven2/</url>
+		</repository>
+	</repositories>
+
 </project>
-
