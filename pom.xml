@@ -13,5 +13,35 @@
     </dependency>
 </dependencies>
 
+<build>
+    <plugins>
+        <plugin>
+            <groupId>com.github.jonathanjo</groupId>
+            <artifactId>maven-launch4j-plugin</artifactId>
+            <version>2.4.3</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>launch4j</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <!-- Nombre del archivo .exe que se generará -->
+                <outfile>target/${project.artifactId}.exe</outfile>
+                <!-- Nombre del archivo jar que se convertirá en .exe -->
+                <jar>${project.build.directory}/${project.build.finalName}.jar</jar>
+                <!-- Icono para el .exe -->
+                <icon>src/main/resources/icon.ico</icon> <!-- Opcional -->
+                <!-- Configura el JRE requerido para ejecutar el .exe -->
+                <minJreVersion>1.8.0</minJreVersion>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+
   
 </project>
+

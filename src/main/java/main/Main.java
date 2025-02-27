@@ -9,7 +9,6 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
 
-        // Crea un botón
         JButton boton = new JButton("Pulsa aquí");
         boton.setBounds(150, 100, 120, 40);  
 
